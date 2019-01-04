@@ -1,0 +1,225 @@
+package grafmain;
+
+
+public class GrafMain {
+
+   
+    public static void main(String[] args) {
+         Graf graf = new Graf(6);
+
+        graf.hozzaad(0, 1);
+        graf.hozzaad(1, 2);
+        graf.hozzaad(0, 2);
+        graf.hozzaad(2, 3);
+        graf.hozzaad(3, 4);
+        graf.hozzaad(4, 5);
+        graf.hozzaad(2, 4);
+        
+        System.out.println(graf);
+    
+    }
+    
+}
+package grafmain;
+
+
+public class El {
+    
+    private int csucs1;
+   
+    private int csucs2;
+
+    
+    public El(int csucs1, int csucs2) {
+        this.csucs1 = csucs1;
+        this.csucs2 = csucs2;
+    }
+
+    
+    public int getCsucs1() {
+        return csucs1;
+    }
+
+    
+    public int getCsucs2() {
+        return csucs2;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d - %d)", csucs1, csucs2);
+    }
+ 
+    
+    
+}
+
+
+package grafmain;
+
+public class Csucs {
+    
+  
+    private int id;
+
+    
+    public Csucs(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(this.id);
+}
+}
+
+package grafmain;
+
+
+import java.util.ArrayList;
+
+public class Graf {
+    private final int csucsokSzama;
+    
+    private final ArrayList<El> elek = new ArrayList<>();
+    
+    private final ArrayList<Csucs> csucsok = new ArrayList<>();
+    
+    private int kovetkezok;
+     private int bejart;
+     private int SzelessegiBejar;
+    public Graf(int csucsok) {
+        this.csucsokSzama = csucsok;
+        
+       
+        for (int i = 0; i < csucsok; i++) {
+            this.csucsok.add(new Csucs(i));
+        }
+    }
+
+    
+    public void hozzaad(int cs1, int cs2) {
+        if (cs1 < 0 || cs1 >= csucsokSzama ||
+            cs2 < 0 || cs2 >= csucsokSzama) {
+            throw new IndexOutOfBoundsException("Hibas csucs index");
+        }
+        
+        
+        for (El el: elek) {
+            if (el.getCsucs1() == cs1 && el.getCsucs2() == cs2) {
+                return;
+            }
+        }
+        
+        elek.add(new El(cs1, cs2));
+        elek.add(new El(cs2, cs1));
+    }
+
+    @Override
+    public String toString() {
+        String str = "Csucsok:\n";
+        for (Csucs cs: csucsok) {
+            str += cs + "\n";
+        }
+        str += "Elek:\n";
+        for (El el: elek) {
+            str += el + "\n";
+        }
+        return str;
+    }
+     public void int Graf.SzelessegiBejar (kezdopont:int){
+  bejart = new empty aggregation();
+  kovetkezok = new empty row();
+  kovetkezok.hozzaad(2,4);
+  bejart.hozzad(4,5);
+  
+  int i =0;
+  
+  while(i<kovetkezok.hozzaad && kovetkezok[k]<=7){
+      i++;
+  }
+  if(k = kovetkezok.kivesz(0,1)){
+ 
+      System.out.println(this.Csucsok);
+  }
+  for(el = this.elek[k])
+      if(el.csucs ==k &&bejart !=el.csucs2)
+          kovetkezok.hozzaad(el.csucs2);
+          bejart.hozzaad(el.csucs2);
+}
+   public void int Graf.MelysegiBejar (kezdopont:int){
+     bejart = new empty aggregation();
+    kovetkezok = new empty stack();
+  kovetkezok.hozzaad(2,4);
+  bejart.hozzad(4,5);
+  int i =0;
+  
+  while(i<kovetkezok.hozzaad && kovetkezok[k]<=7){
+      i++;
+  }
+  if(k = kovetkezok.kivesz(0,1)){
+ 
+      System.out.println(this.Csucsok);
+      }
+    for(el = this.elek[k])
+      if(el.csucs ==k &&bejart !=el.csucs2)
+          kovetkezok.hozzaad(el.csucs2);
+          bejart.hozzaad(el.csucs2);
+}
+   public void Graf.Osszefuggoseg boolean(){
+   bejart = new empty aggregation();
+   kovetkezok = new empty row();
+  kovetkezok.hozzaad(2,4);
+  bejart.hozzad(4,5);
+   while(i<kovetkezok.hozzaad && kovetkezok[k]<=7){
+      i++;
+  }
+  if(k = kovetkezok.kivesz(0,1))
+   for(el = this.elek[k])
+      if(el.csucs ==k &&bejart !=el.csucs2)
+          kovetkezok.hozzaad(el.csucs2);
+          bejart.hozzaad(el.csucs2);
+          if(bejart[k]== this.csucsokSzama){
+              return true;
+          } else{
+              return false;
+          }
+  public void Graf.StrainerTree():Graf{
+              tree = new Graf(this.csucsokSzama);   
+   bejart = new empty aggregation();
+   kovetkezok = new empty row();
+  kovetkezok.hozzaad(2,4);
+  bejart.hozzad(4,5);
+              int i =0;
+  
+  while(i<kovetkezok.hozzaad && kovetkezok[k]<=7){
+      i++;
+  }
+  if(k = kovetkezok.kivesz(0,1))   
+      for(el = this.elek[k])
+          if(el.csucs ==aktualiscsucs &&bejart !=el.csucs2)
+              bejart.hozzaad(el.csucs2);
+              kovetkezok.hozzaad(el.csucs1);
+          
+          tree.hozzaad(el.Csucs1,el.Csucs2)
+                
+             }
+  return tree;
+}  
+  public void Graf.Mohocolor():Dictionary(int=>int){
+colors = new empty Dictionary();
+maxcolor = this.csucsokSzama;
+
+int i =0;
+for(i=0;i>aktualiscucs;i--)
+maxcolor = new aggregation(-1);
+for(el = this.elek[k])
+ if(el.csucs ==aktualiscsucs &&colors ==el.csucs2)
+color = colors[el.csucs2];
+optionalcolour.kivesz(color);
+optionalscolour = min(optionalcolour0);
+colors.hozzaad(aktualiscsucs,optionalcolour)
+}
+return colors;
+}
+     
